@@ -7,9 +7,7 @@ export default function Reviews({isLoading, setIsLoading}) {
     const [reviews, setReviews] = useState([]);
 
     const {category} = useParams();
-
       useEffect(() => {
-        console.log("useEffect")
         getReviews(category).then((reviews) =>{
             setReviews(reviews);
             setIsLoading(false);
@@ -19,8 +17,6 @@ export default function Reviews({isLoading, setIsLoading}) {
     if(isLoading){
         return <p className='loadingText'>... Loading!</p>
     }
-    
-    console.log("Render")
 
     return (
         <ul className="reviewsList">
