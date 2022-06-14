@@ -1,5 +1,6 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import ReviewCard from './ReviewCard.js'
+import getReviews from '../Utils/api'
 
 export default function Reviews() {
     const [reviews, setReviews] = useState([{
@@ -14,6 +15,12 @@ export default function Reviews() {
         "votes": 3,
         "comment_count": 1
       }]);
+
+      useEffect(() => {
+        getReviews().then((reviews) =>{
+            setReviews(reviews);
+        })
+      })
 
     return (
         <ul>
