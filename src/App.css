@@ -15,7 +15,12 @@ h1{
 }
 
 span{
-  display: inline-block;
+  display: inline;
+}
+
+span > button{
+  margin-left: 1rem;
+  padding: 0.5rem 0.75rem;
 }
 
 #navbar{
@@ -53,6 +58,24 @@ span{
 
 .linkStyle{
   text-decoration: none;
+}
+
+#review{
+  border: 2px solid red;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+#review > img{
+  width: 100%;
+}
+
+#review > h3{
+  margin: 0.5rem 0;
+}
+
+#reviewBody{
+  padding-bottom: 1rem;
 }
 
 @media only screen and (min-width: 800px){

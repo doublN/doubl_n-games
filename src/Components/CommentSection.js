@@ -1,5 +1,5 @@
 export default function CommentSection() {
   return (
-    <div>CommentSection</div>
+    <div>CommentSection (PlaceHolder)</div>
   )
 }
