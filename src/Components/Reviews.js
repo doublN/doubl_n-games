@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import dateString from '../Utils/dateString.js'
+import ReviewCard from './ReviewCard.js'
 
 export default function Reviews() {
     const [reviews, setReviews] = useState([{
@@ -18,19 +18,8 @@ export default function Reviews() {
     return (
         <ul>
             {reviews.map((review) =>{
-                let date = dateString(new Date(review.created_at))
-
                 return(
-                    <li key={review.review_id}>
-                        <img src={review.review_img_url} />
-                        <p>{review.title}</p>
-                        <p>Designer: {review.designer}</p>
-                        <p>Owner: {review.owner}</p>
-                        <p>Category: {review.category}</p>
-                        <p>{review.comment_count} comments</p>
-                        <p>{review.votes} votes</p>
-                        <p>date posted: {date}</p>
-                    </li>
+                    <ReviewCard key={review.review_id} review={review} />
                 )
             })}
         </ul>
