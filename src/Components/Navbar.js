@@ -6,7 +6,7 @@ export default function Navbar() {
         <p>home</p>
         <form>
             <select name="category">
-                <option selected>Choose a Category</option>
+                <option defaultValue>Choose a Category</option>
             </select>
             <input type='submit' />
         </form>
