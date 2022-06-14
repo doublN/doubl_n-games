@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1{
+  text-align: center;
+  margin: 1rem;
+}
+
+#navbar{
+  margin: 1rem 0;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0% 10%;
+}
+
+.reviewsList{
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewCard{
+  border: 3px solid red;
+  padding: 0.75rem;
+  margin: 1rem;
+  list-style: none;
+}
+
+.reviewCard > img{
+  width: 100%;
+  margin: 1rem 0;
+}
