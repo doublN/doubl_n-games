@@ -22,6 +22,10 @@ h1{
   padding: 0% 10%;
 }
 
+.loadingText{
+  text-align: center;
+}
+
 .reviewsList{
   display: flex;
   flex-direction: column;
