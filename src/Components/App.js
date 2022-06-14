@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header setIsLoading={setIsLoading}/>
       <Navbar setIsLoading={setIsLoading}/>
       <Routes>
         <Route path="/" element={<Reviews isLoading={isLoading} setIsLoading={setIsLoading}/>} />

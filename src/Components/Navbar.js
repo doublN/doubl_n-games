@@ -1,4 +1,4 @@
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, Link} from 'react-router-dom';
 import {useState} from 'react';
 
 export default function Navbar({setIsLoading}) {
@@ -6,7 +6,6 @@ export default function Navbar({setIsLoading}) {
   let navigate = useNavigate();
 
   function handleChange(event){
-    console.log(event.target.value);
     setChosenCatgory(event.target.value)
   }
 
@@ -18,7 +17,7 @@ export default function Navbar({setIsLoading}) {
 
   return (
     <nav id="navbar">
-        <p>home</p>
+        <Link to="/" onClick={() => {setIsLoading(true)}}>Home</Link>
         <form onSubmit={handleSubmit}>
             <select name="category" onChange={handleChange}>
                 <option value="">Choose a Category</option>
