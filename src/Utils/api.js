@@ -1,7 +1,9 @@
-const api = require('axios').default;
+const axios = require('axios').default;
+
+const api = axios.create({baseURL : "https://doubl-n-games.herokuapp.com/api"});
 
 function getReviews (){
-    return api.get("https://doubl-n-games.herokuapp.com/api/reviews").then(({data : {reviews}}) =>{
+    return api.get("/reviews").then(({data : {reviews}}) =>{
         return reviews;
     })
 }
