@@ -14,7 +14,7 @@ export default function ReviewCard({review}) {
     <div className="reviewDetails">
         <p>Designer: {review.designer}</p>
         <p>Owner: {review.owner}</p>
-        <p>Category: {review.category}</p>
+        <p>Category: {review.category.split("-").join(" ")}</p>
         <p>{review.comment_count} comments</p>
         <p>{review.votes} votes</p>
         <p>Posted on: {date}</p>
