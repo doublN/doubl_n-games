@@ -25,3 +25,9 @@ exports.addVote = (review_id, inc_votes) =>{
         return review;
     })
 }
+
+exports.getComments = (review_id) =>{
+    return api.get(`reviews/${review_id}/comments`).then(({data : {comments}}) => {
+        return comments;
+    })
+}

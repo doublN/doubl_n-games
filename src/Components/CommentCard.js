@@ -5,13 +5,12 @@ export default function CommentCard({comment}) {
 
   return (
     <div className="commentCard">
-        <h3>{comment.author}</h3>
-        <button>Delete</button>
         <p>{comment.body}</p>
+        <p>Posted by {comment.author} on {date}</p>
         <p>{comment.votes} votes</p>
         <button>Up Vote</button>
         <button>Down Vote</button>
-        <p>Posted on {date}</p>
+        <button>Delete</button>
     </div>
   )
 }
