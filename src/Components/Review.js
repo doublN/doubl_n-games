@@ -6,6 +6,7 @@ export default function Review() {
     const [review, setReview] = useState({})
     const [votes, setVotes] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
+    const [buttonDisabled, setButtonDisabled] = useState(false);
 
     const {review_id} = useParams();
     useEffect(() =>{
@@ -17,6 +18,7 @@ export default function Review() {
     }, [review_id])
 
     function handleVote(voteChange){
+        setButtonDisabled(true);
         setVotes((currVotes) =>{
             return currVotes += voteChange;
         })
@@ -24,6 +26,7 @@ export default function Review() {
             setVotes((currVotes) =>{
                 return --currVotes;
             })
+            setButtonDisabled(false);
             alert("Error changing the vote count, please try again.");
         });
     }
@@ -39,7 +42,11 @@ export default function Review() {
             <img src={review.review_img_url} alt={review.title}/>
             <h3>Review by {review.owner}</h3>
             <p id="reviewBody">{review.review_body}</p>
-            <span>{votes} Vote{votes !== 1 ? 's' : ''}<button onClick={() => {handleVote(1)}}>Up Vote</button> <button onClick={() => {handleVote(-1)}}>Down Vote</button></span>
+            <span>
+                {votes} Vote{votes !== 1 ? 's' : ''}
+                <button onClick={() => {handleVote(1)}} disabled={buttonDisabled}>Up Vote</button> 
+                <button onClick={() => {handleVote(-1)}} disabled={buttonDisabled}>Down Vote</button>
+            </span>
         </div>
     )
 
