@@ -15,6 +15,9 @@ export default function PostComment({setComments}) {
         setButtonDisabled(false);
         return [comment, ...currentComments]
       })
+    }).catch((err) =>{
+      alert("Error posting comment, please try again");
+      setButtonDisabled(false);
     });
     setComment("");
   }
