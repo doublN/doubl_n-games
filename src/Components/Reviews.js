@@ -1,18 +1,19 @@
 import {useState, useEffect} from 'react'
-import {useParams} from 'react-router-dom'
+import {useParams, Link} from 'react-router-dom'
 import ReviewCard from './ReviewCard.js'
-import getReviews from '../Utils/api'
+import {getReviews} from '../Utils/api'
 
 export default function Reviews({isLoading, setIsLoading}) {
     const [reviews, setReviews] = useState([]);
 
     const {category} = useParams();
-      useEffect(() => {
-        getReviews(category).then((reviews) =>{
-            setReviews(reviews);
-            setIsLoading(false);
-        })
-      }, [category])
+
+    useEffect(() => {
+    getReviews(category).then((reviews) =>{
+        setReviews(reviews);
+        setIsLoading(false);
+    })
+    }, [category])
 
     if(isLoading){
         return <p className='loadingText'>... Loading!</p>
@@ -22,7 +23,9 @@ export default function Reviews({isLoading, setIsLoading}) {
         <ul className="reviewsList">
             {reviews.map((review) =>{
                 return(
-                    <ReviewCard key={review.review_id} review={review} />
+                    <Link to={`/review/${review.review_id}`} key={review.review_id} className='linkStyle'>
+                        <ReviewCard review={review} />
+                    </Link>
                 )
             })}
         </ul>
