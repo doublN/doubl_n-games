@@ -31,3 +31,9 @@ exports.getComments = (review_id) =>{
         return comments;
     })
 }
+
+exports.postComment = (review_id, username, body) =>{
+    return api.post(`reviews/${review_id}/comments`, {username, body}).then(({data : {comment}}) =>{
+        return comment;
+    })
+}
