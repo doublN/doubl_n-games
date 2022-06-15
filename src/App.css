@@ -93,11 +93,27 @@ span > button{
 }
 
 #commentSection{
-  border: 3px solid white;
+  border-top:2px solid white;
+  background-color: #ECCACB;
 }
 
 .commentCard{
-  border: 2px solid white;
+  border: 3px solid #E97252;
+  margin: 0.5rem 1rem;
+  padding:0.5rem;
+}
+
+.commentCard > p{
+  margin:0.2rem;
+}
+
+.commentBody{
+  border: 2px solid #E97252;
+  background-color: #F4FBF9;
+  padding: 0.3rem;
+}
+
+.commentSpan{
 }
 
 @media only screen and (min-width: 800px){
