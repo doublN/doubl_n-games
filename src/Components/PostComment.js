@@ -4,12 +4,15 @@ import { postComment } from '../Utils/api';
 
 export default function PostComment({setComments}) {
   const [comment, setComment] = useState("")
+  const [buttonDisabled, setButtonDisabled] = useState(false)
 
   const {review_id} = useParams();
   function handleSubmit(event){
     event.preventDefault();
+    setButtonDisabled(true);
     postComment(review_id, 'tickle122', comment).then((comment) =>{
       setComments((currentComments) =>{
+        setButtonDisabled(false);
         return [comment, ...currentComments]
       })
     });
@@ -19,8 +22,8 @@ export default function PostComment({setComments}) {
   return (
     <form onSubmit={handleSubmit}>
       <label>Post a Comment:</label>
-      <input type="text" onChange={(event) => {setComment(event.target.value)}} value={comment}/>
-      <input type="submit"></input>
+      <input type="text" onChange={(event) => {setComment(event.target.value)}} value={comment} required/>
+      <input type="submit" disabled={buttonDisabled}></input>
     </form>
   )
 }
