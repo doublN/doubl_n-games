@@ -19,3 +19,9 @@ exports.getReview = (review_id) =>{
         return review;
     })
 }
+
+exports.addVote = (review_id, inc_votes) =>{
+    return api.patch(`reviews/${review_id}`, {inc_votes}).then(({data : {review}}) =>{
+        return review;
+    })
+}
