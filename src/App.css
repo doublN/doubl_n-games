@@ -22,7 +22,7 @@ span{
 }
 
 span > button{
-  margin-left: 1rem;
+  margin-left: 0.5rem;
   padding: 0.5rem 0.75rem;
 }
 
@@ -68,7 +68,6 @@ span > button{
 }
 
 #review{
-  border: 2px solid red;
   margin: 1rem;
   padding: 1rem;
   background-color: #F4FBF9;
@@ -92,6 +91,27 @@ span > button{
   align-items: center;
 }
 
+#commentSection{
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #ECCACB;
+}
+
+.commentCard{
+  border: 3px solid #E97252;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.5rem;
+}
+
+.commentCard > p{
+  margin:0.2rem;
+}
+
+.commentBody{
+  border: 2px solid #E97252;
+  background-color: #F4FBF9;
+  padding: 0.3rem;
+}
 
 @media only screen and (min-width: 800px){
   .reviewsList{
@@ -122,6 +142,15 @@ span > button{
 
   #reviewPage{
     flex-direction: row;
+  }
+
+  #reviewPage{
+    align-items: stretch;
+  }
+
+  #commentSection{
+    border: none;
+    margin: 1rem;
   }
 }
 
