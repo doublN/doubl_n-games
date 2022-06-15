@@ -68,7 +68,7 @@ span > button{
 }
 
 #review{
-  border: 2px solid red;
+  border: 2px solid white;
   margin: 1rem;
   padding: 1rem;
   background-color: #F4FBF9;
@@ -92,6 +92,13 @@ span > button{
   align-items: center;
 }
 
+#commentSection{
+  border: 3px solid white;
+}
+
+.commentCard{
+  border: 2px solid white;
+}
 
 @media only screen and (min-width: 800px){
   .reviewsList{
