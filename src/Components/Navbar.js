@@ -1,8 +1,10 @@
 import {useNavigate, Link} from 'react-router-dom';
-import {useState} from 'react';
+import {useState, useContext} from 'react';
+import {UserContext} from '../Contexts/UserContext'
 
 export default function Navbar({setIsLoading}) {
   const [chosenCategory, setChosenCatgory] = useState("");
+  const {user, setUser} = useContext(UserContext)
   let navigate = useNavigate();
 
   function handleChange(event){
@@ -13,6 +15,10 @@ export default function Navbar({setIsLoading}) {
     event.preventDefault();
     setIsLoading(true);
     navigate(`/${chosenCategory}`)
+  }
+
+  function handleLogIn(event){
+    setUser("tickle122");
   }
 
   return (
@@ -31,7 +37,7 @@ export default function Navbar({setIsLoading}) {
             </select>
             <input type='submit' />
         </form>
-        <p>Login</p>
+        {user === "" ? <button onClick={handleLogIn}>Log in</button> : user}
     </nav>
   )
 }

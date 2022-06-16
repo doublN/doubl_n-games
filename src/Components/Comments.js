@@ -3,8 +3,8 @@ import {useParams} from 'react-router-dom'
 import CommentCard from './CommentCard';
 import {getComments} from '../Utils/api'
 
-export default function Comments() {
-    const [comments, setComments] = useState([])
+export default function Comments({comments, setComments}) {
+    
     const [isLoading, setIsLoading] = useState(true);
 
     const {review_id} = useParams();
@@ -12,7 +12,7 @@ export default function Comments() {
     useEffect(() =>{
         getComments(review_id)
         .then((comments) =>{
-            setComments(comments);
+            setComments(comments.reverse());
             setIsLoading(false);
         })
     }, [review_id])
