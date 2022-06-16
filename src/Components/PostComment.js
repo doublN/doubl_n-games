@@ -25,10 +25,10 @@ export default function PostComment({setComments}) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} id="commentForm">
       <label>Post a Comment:</label>
-      <input type="text" onChange={(event) => {setComment(event.target.value)}} value={comment} required/>
-      <input type="submit" disabled={buttonDisabled}></input>
+      <textarea onChange={(event) => {setComment(event.target.value)}} value={comment} required/>
+      <input type="submit" disabled={buttonDisabled} className="commentSubmit"></input>
     </form>
   )
 }

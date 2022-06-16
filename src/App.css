@@ -23,7 +23,7 @@ span{
 
 span > button{
   margin-left: 0.5rem;
-  padding: 0.5rem 0.75rem;
+  padding: 0.25rem;
 }
 
 #navbar{
@@ -88,7 +88,7 @@ span > button{
 #reviewPage{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
 }
 
 #commentSection{
@@ -111,6 +111,25 @@ span > button{
   border: 2px solid #E97252;
   background-color: #F4FBF9;
   padding: 0.3rem;
+}
+
+#commentForm{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#commentForm > *{
+  margin: 0.25rem 0;
+}
+
+#commentForm > textarea{
+  width:100%;
+  max-width: 100%;
+}
+
+.commentSubmit{
+  padding:0.25rem;
 }
 
 @media only screen and (min-width: 800px){
@@ -151,6 +170,8 @@ span > button{
   #commentSection{
     border: none;
     margin: 1rem;
+    width: 50%;
+    align-items: center;
   }
 }
 
