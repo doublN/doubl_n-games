@@ -47,3 +47,7 @@ exports.postComment = (review_id, username, body) =>{
         return comment;
     })
 }
+
+exports.deleteComment = (comment_id) =>{
+    return api.delete(`comments/${comment_id}`);
+}
