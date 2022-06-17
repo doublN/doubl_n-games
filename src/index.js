@@ -5,8 +5,6 @@ import {BrowserRouter} from 'react-router-dom'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-process.env.CI = false;
-
 root.render(
   <BrowserRouter>
     <React.StrictMode>
