@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import {useParams, Link} from 'react-router-dom'
+import {useParams, Link, useNavigate} from 'react-router-dom'
 import ReviewCard from './ReviewCard.js'
 import SortBar from './SortBar.js'
 import {getReviews} from '../Utils/api'
@@ -10,6 +10,7 @@ export default function Reviews({isLoading, setIsLoading}) {
     const [orderBy, setOrderBy] = useState(null);
 
     const {category} = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
     getReviews(category).then((reviews) =>{
@@ -17,6 +18,8 @@ export default function Reviews({isLoading, setIsLoading}) {
         setIsLoading(false);
 
         return () => {setSortBy(null); setOrderBy(null)}
+    }).catch(({response : {data : {msg}}}) =>{
+        navigate("/error", {state : {errMsg : msg}});
     })
     }, [isLoading, sortBy, orderBy])
 
@@ -25,7 +28,7 @@ export default function Reviews({isLoading, setIsLoading}) {
     }
 
     return (
-        <>
+        <div id="reviews">
             <SortBar setSortBy={setSortBy} sortBy={sortBy} setOrderBy={setOrderBy} orderBy={orderBy}/>
             <ul className="reviewsList">
                 {reviews.map((review) =>{
@@ -36,6 +39,6 @@ export default function Reviews({isLoading, setIsLoading}) {
                     )
                 })}
             </ul>
-        </>
+        </div>
     )
 }

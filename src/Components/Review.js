@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import {useParams} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom'
 import { getReview, addVote } from '../Utils/api';
 
 export default function Review() {
@@ -9,11 +9,15 @@ export default function Review() {
     const [buttonDisabled, setButtonDisabled] = useState(false);
 
     const {review_id} = useParams();
+    const navigate = useNavigate();
+    
     useEffect(() =>{
         getReview(review_id).then((review) =>{
             setReview(review);
             setVotes(review.votes);
             setIsLoading(false);
+        }).catch(({response : {data : {msg}}}) =>{
+            navigate("/error", {state: {errMsg : msg}})
         })
     }, [review_id])
 

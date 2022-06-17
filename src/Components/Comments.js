@@ -11,7 +11,6 @@ export default function Comments({comments, setComments}) {
     const {review_id} = useParams();
 
     useEffect(() =>{
-        console.log('comments')
         getComments(review_id)
         .then((comments) =>{
             setComments(comments.reverse());
