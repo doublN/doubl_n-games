@@ -28,7 +28,7 @@ export default function Reviews({isLoading, setIsLoading}) {
     }
 
     return (
-        <>
+        <div id="reviews">
             <SortBar setSortBy={setSortBy} sortBy={sortBy} setOrderBy={setOrderBy} orderBy={orderBy}/>
             <ul className="reviewsList">
                 {reviews.map((review) =>{
@@ -39,6 +39,6 @@ export default function Reviews({isLoading, setIsLoading}) {
                     )
                 })}
             </ul>
-        </>
+        </div>
     )
 }

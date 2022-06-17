@@ -29,7 +29,7 @@ span > button{
 #navbar{
   padding: 0% 10%;
   padding-bottom: 1rem;
-  border-bottom: 5px solid red;
+  border-bottom: 5px solid #bc5333;
   display:flex;
   justify-content: space-between;
   align-items: center;
@@ -46,7 +46,7 @@ span > button{
 }
 
 .reviewCard{
-  border: 3px solid red;
+  border: 3px solid #bc5333;
   padding: 0.75rem;
   margin: 1rem;
   list-style: none;
@@ -136,8 +136,15 @@ span > button{
   text-align: center;
 }
 
+#sortBar{
+  border: 3px solid #bc5333;
+  margin: 0.25rem;
+  padding: 0.25rem;
+  background-color: #F4FBF9;
+}
+
 #sortBar > ul{
-  border-bottom: 1px solid #F4FBF9;
+  border-top: 3px solid #E97252;
   padding-bottom: 0.25rem;
   list-style: none;
   display:flex;
@@ -156,6 +163,11 @@ span > button{
 }
 
 @media only screen and (min-width: 800px){
+  #reviews{
+    display:flex;
+    align-items: flex-start;
+  }
+
   .reviewsList{
     display: grid;
     grid-template-columns: auto auto auto;
@@ -174,7 +186,6 @@ span > button{
   }
 
   .reviewDetails{
-    /* border: 2px solid blue; */
     padding-left: 1rem;
   }
 
@@ -195,6 +206,17 @@ span > button{
     margin: 1rem;
     width: 50%;
     align-items: center;
+  }
+
+  #sortBar{
+    margin: 1rem;
+    padding: 2rem;
+  }
+
+  #sortBar > ul{
+    margin-left: 1rem 0;
+    padding: 1rem 0;
+    flex-direction: column;
   }
 }
 
