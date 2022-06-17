@@ -1,7 +1,18 @@
+import {useContext} from 'react'
+import {UserContext} from '../Contexts/UserContext'
+import {deleteComment} from '../Utils/api'
 import dateString from '../Utils/dateString'
 
 export default function CommentCard({comment}) {
+  const {user} = useContext(UserContext);
+
   let date = dateString(new Date(comment.created_at))
+
+
+  function handleDelete(comment_id, author){
+    if(user === author) deleteComment(comment_id);
+    else { alert("You cannot delete other user's comments!")}
+  }
 
   return (
     <div className="commentCard">
@@ -11,7 +22,7 @@ export default function CommentCard({comment}) {
           {comment.votes} votes
           <button>Up Vote</button>
           <button>Down Vote</button>
-          <button id="deleteButton">Delete</button>
+          <button id="deleteButton" onClick={() => {handleDelete(comment.comment_id, comment.author)}}>Delete</button>
         </span>
     </div>
   )
