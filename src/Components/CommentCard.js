@@ -12,15 +12,10 @@ export default function CommentCard({comment}) {
 
   function handleDelete(comment_id, author){
     setCommentDeleted(true);
-    if(user === author) {
-      deleteComment(comment_id).catch(() =>{
-        alert("Error deleting comment, please try again");
-        setCommentDeleted(false);
-      });
-    } else { 
-      alert("You cannot delete other user's comments! (Are you logged in?)");
+    deleteComment(comment_id).catch(() =>{
+      alert("Error deleting comment, please try again");
       setCommentDeleted(false);
-    }
+    });
   }
 
   if(commentDeleted === true){
@@ -39,7 +34,10 @@ export default function CommentCard({comment}) {
           {comment.votes} votes
           <button>Up Vote</button>
           <button>Down Vote</button>
-          <button id="deleteButton" onClick={() => {handleDelete(comment.comment_id, comment.author)}} disabled={commentDeleted}>Delete</button>
+          {comment.author === user ?
+           <button id="deleteButton" onClick={() => {handleDelete(comment.comment_id, comment.author)}} disabled={commentDeleted}>Delete</button>
+           : null
+           }
         </span>
     </div>
   )
