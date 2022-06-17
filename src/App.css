@@ -132,9 +132,6 @@ span > button{
   padding:0.25rem;
 }
 
-#sortBar{
-}
-
 #sortBar > h3{
   text-align: center;
 }
@@ -150,6 +147,12 @@ span > button{
 
 #sortBar > ul:hover{
   cursor: pointer;
+}
+
+#errorMsg{
+  text-align: center;
+  background-color: #F4FBF9;
+  padding: 2rem;
 }
 
 @media only screen and (min-width: 800px){

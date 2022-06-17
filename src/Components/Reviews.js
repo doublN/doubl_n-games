@@ -19,8 +19,7 @@ export default function Reviews({isLoading, setIsLoading}) {
 
         return () => {setSortBy(null); setOrderBy(null)}
     }).catch(({response : {data : {msg}}}) =>{
-        console.log(msg);
-        navigate("/error", {state : {errMsg : "Sorry that category does not exist"}});
+        navigate("/error", {state : {errMsg : msg}});
     })
     }, [isLoading, sortBy, orderBy])
 
