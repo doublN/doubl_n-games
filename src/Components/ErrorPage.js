@@ -6,7 +6,6 @@ export default function ErrorPage() {
     const {state} = useLocation();
 
     if(state){
-        console.log(state.errMsg)
         switch(state.errMsg){
             case 'Review id does not exist': displayedErrMsg = "Sorry, that review does not exist"; break;
             case 'Bad request: invalid data type': displayedErrMsg = "Invalid review id entered"; break;
