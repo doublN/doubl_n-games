@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import {useParams, Link} from 'react-router-dom'
+import {useParams, Link, useNavigate} from 'react-router-dom'
 import ReviewCard from './ReviewCard.js'
 import SortBar from './SortBar.js'
 import {getReviews} from '../Utils/api'
@@ -10,6 +10,7 @@ export default function Reviews({isLoading, setIsLoading}) {
     const [orderBy, setOrderBy] = useState(null);
 
     const {category} = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
     getReviews(category).then((reviews) =>{
@@ -17,6 +18,9 @@ export default function Reviews({isLoading, setIsLoading}) {
         setIsLoading(false);
 
         return () => {setSortBy(null); setOrderBy(null)}
+    }).catch(({response : {data : {msg}}}) =>{
+        console.log(msg);
+        navigate("/error", {state : {errMsg : "Sorry that category does not exist"}});
     })
     }, [isLoading, sortBy, orderBy])
 

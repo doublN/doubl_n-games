@@ -6,6 +6,7 @@ import Header from './Header.js'
 import Navbar from './Navbar'
 import ReviewPage from './ReviewPage';
 import Reviews from './Reviews'
+import ErrorPage from './ErrorPage'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -17,6 +18,8 @@ function App() {
         <Header setIsLoading={setIsLoading}/>
         <Navbar setIsLoading={setIsLoading}/>
         <Routes>
+          <Route path="*" element={<ErrorPage />} />
+          <Route path="/error" element={<ErrorPage />} />
           <Route path="/" element={<Reviews isLoading={isLoading} setIsLoading={setIsLoading}/>} />
           <Route path="/:category" element={<Reviews isLoading={isLoading} setIsLoading={setIsLoading}/>} />
           <Route path="/review/:review_id" element={<ReviewPage />} />
