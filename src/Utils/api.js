@@ -3,7 +3,17 @@ const axios = require('axios').default;
 const api = axios.create({baseURL : "https://doubl-n-games.herokuapp.com/api"});
 
 exports.getReviews = (category) =>{
-    let params = {}
+    let searchParams = (new URL(document.location)).searchParams;
+    
+    let sort_by = searchParams.get('sort_by');
+
+    if(sort_by === 'null') sort_by = null;
+
+    let order = searchParams.get('order');
+
+    if(order === 'null') order = null;
+    
+    let params = {sort_by, order};
 
     if(category !== undefined || category === 'Choose+a+category'){
         params.category = category;

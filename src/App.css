@@ -132,6 +132,26 @@ span > button{
   padding:0.25rem;
 }
 
+#sortBar{
+}
+
+#sortBar > h3{
+  text-align: center;
+}
+
+#sortBar > ul{
+  border-bottom: 1px solid #F4FBF9;
+  padding-bottom: 0.25rem;
+  list-style: none;
+  display:flex;
+  justify-content: space-evenly;
+  text-decoration: underline;
+}
+
+#sortBar > ul:hover{
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 800px){
   .reviewsList{
     display: grid;
