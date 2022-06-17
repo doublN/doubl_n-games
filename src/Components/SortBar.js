@@ -16,7 +16,7 @@ export default function SortBar({sort, setSortBy, sortBy, setOrderBy, orderBy}) 
     }
 
     return (
-        <div>
+        <div id="sortBar">
             <h3> Sort </h3>
             <ul>
                 <li onClick={handleSortClick}>title</li>
@@ -26,7 +26,6 @@ export default function SortBar({sort, setSortBy, sortBy, setOrderBy, orderBy}) 
                 <li onClick={handleSortClick}>comment count</li>
                 <li onClick={handleSortClick}>votes</li>
             </ul>
-            <hr></hr>
             <ul>
                 <li onClick={handleOrderClick}>ascending</li>
                 <li onClick={handleOrderClick}>descending</li>
