@@ -19,8 +19,6 @@ exports.getReviews = (category) =>{
         params.category = category;
     }
 
-    console.log(params);
-
     return api.get("/reviews", {params}).then(({data : {reviews}}) =>{
         return reviews;
     })

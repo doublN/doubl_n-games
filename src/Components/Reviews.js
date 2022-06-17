@@ -18,7 +18,7 @@ export default function Reviews({isLoading, setIsLoading}) {
 
         return () => {setSortBy(null); setOrderBy(null)}
     })
-    }, [category, orderBy, sortBy])
+    }, [isLoading, sortBy, orderBy])
 
     if(isLoading){
         return <p className='loadingText'>... Loading!</p>
